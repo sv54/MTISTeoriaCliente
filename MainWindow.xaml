@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="GetSeguimiento" Content="Get Seguimiento" HorizontalAlignment="Left" Margin="456,165,0,0" VerticalAlignment="Top" Width="111" Height="23" Click="GetSeguimiento_Click" />
+        <TextBox x:Name="Codigo1" HorizontalAlignment="Left" Height="23" Margin="450,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="5UOXOXIEGM98"/>
+        <Label x:Name="Codigo" Content="Codigo de seguimiento" HorizontalAlignment="Left" Margin="445,97,0,0" VerticalAlignment="Top" Width="137"/>
+        <TextBox x:Name="Estado" HorizontalAlignment="Left" Height="74" Margin="450,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <Label Content="Estado del pedido" HorizontalAlignment="Left" Margin="456,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.577"/>
+
     </Grid>
 </Window>
