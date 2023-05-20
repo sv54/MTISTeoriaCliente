@@ -61,6 +61,8 @@ namespace MTISTeoriaCliente
                     else
                     {
                         Console.WriteLine("La petición no fue exitosa. Código de respuesta: " + response.StatusCode);
+                        Estado.Text = "El codigo no corresponde con ningun envio";
+
                     }
                 }
                 catch (Exception ex)
