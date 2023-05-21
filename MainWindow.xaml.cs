@@ -79,7 +79,7 @@ namespace MTISTeoriaCliente
                 try
                 {
                     // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/entrega/clienteDisponible?idEnvio=" + Id_envio.Text);
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/envio?idEnvio=" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
                     
@@ -104,7 +104,7 @@ namespace MTISTeoriaCliente
                 try
                 {
                     // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/entrega/clienteNoDisponible?idEnvio=" + Id_envio.Text);
+                    HttpResponseMessage response = await client.GetAsync(" http://localhost:9094/entrega/clienteNoDisponible?idEnvio=" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
 
