@@ -12,6 +12,13 @@
         <Label x:Name="Codigo" Content="Codigo de seguimiento" HorizontalAlignment="Left" Margin="445,97,0,0" VerticalAlignment="Top" Width="137"/>
         <TextBox x:Name="Estado" HorizontalAlignment="Left" Height="74" Margin="450,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
         <Label Content="Estado del pedido" HorizontalAlignment="Left" Margin="456,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.577"/>
+        <Button x:Name="Asignar_y_enviar_envio_pendiente" Content="Asignar y enviar envio pendiente" HorizontalAlignment="Left" Margin="31,140,0,0" VerticalAlignment="Top" Width="187" Height="40" Click="Asignar_y_enviar_envio_pendiente_Click" />
+        <TextBox x:Name="Id_envio" HorizontalAlignment="Left" Height="23" Margin="36,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="Codigo_Copy" Content="Id envio" HorizontalAlignment="Left" Margin="31,79,0,0" VerticalAlignment="Top" Width="137"/>
+        <TextBox x:Name="Response" HorizontalAlignment="Left" Height="74" Margin="31,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <Button x:Name="Cliente_disponible_en_entrega" Content="Cliente disponible en entrega" HorizontalAlignment="Left" Margin="31,216,0,0" VerticalAlignment="Top" Width="187" Height="33" Click="Cliente_disponible_en_entrega_Click" />
+        <Label x:Name="Codigo_Copy1" Content="Al entregar" HorizontalAlignment="Left" Margin="31,180,0,0" VerticalAlignment="Top" Width="137"/>
+        <Button x:Name="Cliente_no_disponible_en_entrega_Copy" Content="Cliente no disponible en entrega" HorizontalAlignment="Left" Margin="31,254,0,0" VerticalAlignment="Top" Width="187" Height="33" Click="Cliente_no_disponible_en_entrega_Click" />
 
     </Grid>
 </Window>
