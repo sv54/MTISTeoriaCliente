@@ -330,12 +330,33 @@ namespace MTISTeoriaCliente
 
         private async void CrearEnvio(object sender, RoutedEventArgs e)
         {
-            //Cosas de robert aqui
+            var data = new
+            {
+                descripcion = envio_descripcion.Text,
+                origen = envio_origen.Text,
+                destino = envio_destino.Text,
+                peso = envio_peso.Text,
+                altura = envio_altura.Text,
+                anchura = envio_anchura.Text,
+                longitud = envio_longitud.Text,
+                importancia = envio_importancia.Text,
+                origenCp = envio_CP_origen.Text,
+                destinoCp = envio_CP_destino.Text,
+                recogerDomisilio = envio_domisilio.Text
+            };
 
+            string jsonString = JsonConvert.SerializeObject(data);
 
+            using (var client = new HttpClient())
+            {
+                string url = "http://localhost:9094/registrarPaquete";
+                var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(url, content);
+                string responseString = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response: " + responseString);
 
-
-
+                Estado.Text = responseString;
+            }
 
             RegistrarAlmacen(sender, e);
         }
