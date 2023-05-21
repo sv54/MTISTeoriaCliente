@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using System.Xml;
 
 namespace MTISTeoriaCliente
 {
@@ -192,6 +193,138 @@ namespace MTISTeoriaCliente
                     Response.Text = "Error";
                     Console.WriteLine("Error en la petición: " + ex.Message);
                 }
+            }
+        }
+
+        private async void RegistrarAlmacen(object sender, RoutedEventArgs e)
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+
+            XmlElement root = xmlDocument.CreateElement("root");
+
+            XmlElement idAlmacen = xmlDocument.CreateElement("idAlmacen");
+            idAlmacen.InnerText = envio_idAlmacen.Text;
+            root.AppendChild(idAlmacen);
+
+            XmlElement paquete = xmlDocument.CreateElement("paquete");
+
+            XmlElement id = xmlDocument.CreateElement("id");
+            id.InnerText = "30"; //envio_id;
+            paquete.AppendChild(id);
+
+            XmlElement estado = xmlDocument.CreateElement("estado");
+            estado.InnerText = envio_estado.Text;
+            paquete.AppendChild(estado);
+
+            XmlElement descripcion = xmlDocument.CreateElement("descripcion");
+            descripcion.InnerText = envio_descripcion.Text;
+            paquete.AppendChild(descripcion);
+
+            XmlElement origen = xmlDocument.CreateElement("origen");
+            origen.InnerText = envio_origen.Text;
+            paquete.AppendChild(origen);
+
+            XmlElement destino = xmlDocument.CreateElement("destino");
+            destino.InnerText = envio_destino.Text;
+            paquete.AppendChild(destino);
+
+            XmlElement peso = xmlDocument.CreateElement("peso");
+            peso.InnerText = envio_peso.Text;
+            paquete.AppendChild(peso);
+
+            XmlElement altura = xmlDocument.CreateElement("altura");
+            altura.InnerText = envio_altura.Text;
+            paquete.AppendChild(altura);
+
+            XmlElement anchura = xmlDocument.CreateElement("anchura");
+            anchura.InnerText = envio_anchura.Text;
+            paquete.AppendChild(anchura);
+
+            XmlElement longitud = xmlDocument.CreateElement("longitud");
+            longitud.InnerText = envio_longitud.Text;
+            paquete.AppendChild(longitud);
+
+            root.AppendChild(paquete);
+
+            xmlDocument.AppendChild(root);
+            string xmlString = xmlDocument.OuterXml;
+
+            using (var client = new HttpClient())
+            {
+                string url = "http://localhost:9096/Almacen";
+                var content = new StringContent(xmlString, Encoding.UTF8, "application/xml");
+                var response = await client.PostAsync(url, content);
+                string responseString = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response: "+responseString);
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(responseString);
+
+                XmlNode res = doc.DocumentElement;
+                String print = "";
+                foreach (XmlNode node in res.ChildNodes)
+                {
+                    if (node.Name == "result")
+                    {
+                        if (node.InnerText == "true")
+                            print += "Entrada al almacen correcta." + "\n";
+                    }
+                    Console.WriteLine($"{node.Name}: {node.InnerText}");
+                    print+= node.Name+": "+node.InnerText+"\n";
+                }
+                EstadoAlmacen.Text = print;
+            }
+        }
+
+        private async void SalidaAlmacen(object sender, RoutedEventArgs e)
+        {
+            XmlDocument xmlDocument = new XmlDocument();
+
+            XmlElement root = xmlDocument.CreateElement("root");
+
+            XmlElement idPaquete = xmlDocument.CreateElement("idPaquete");
+            idPaquete.InnerText = Id_envio.Text;
+            root.AppendChild(idPaquete);
+
+            XmlElement idAlmacen = xmlDocument.CreateElement("idAlmacen");
+            idAlmacen.InnerText = envio_idAlmacen.Text;
+            root.AppendChild(idAlmacen);
+
+            XmlElement idRepartidor = xmlDocument.CreateElement("idRepartidor");
+            idRepartidor.InnerText = "0"; // FALTA ID
+            root.AppendChild(idRepartidor);
+
+            XmlElement fechaHora = xmlDocument.CreateElement("fechaHora");
+            fechaHora.InnerText = "2010-01-01"; // FALTA ID
+            root.AppendChild(fechaHora);
+
+            xmlDocument.AppendChild(root);
+            string xmlString = xmlDocument.OuterXml;
+
+            using (var client = new HttpClient())
+            {
+                string url = "http://localhost:9097/GestorAlmacen";
+                var content = new StringContent(xmlString, Encoding.UTF8, "application/xml");
+                var response = await client.PostAsync(url, content);
+                string responseString = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response: " + responseString);
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(responseString);
+
+                XmlNode res = doc.DocumentElement;
+                String print = "";
+                foreach (XmlNode node in res.ChildNodes)
+                {
+                    if (node.Name == "result")
+                    {
+                        if (node.InnerText == "true")
+                            print += "Salida del almacen correcta." + "\n";
+                        else
+                            print += "Fallo en la salida del almacen." + "\n";
+                    }
+                    Console.WriteLine($"{node.Name}: {node.InnerText}");
+                    print += node.Name + ": " + node.InnerText + "\n";
+                }
+                EstadoAlmacen.Text = print;
             }
         }
     }
