@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MTISTeoriaCliente"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800">
+        Title="MainWindow" Height="536" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="241.6"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Button x:Name="GetSeguimiento" Content="Get Seguimiento" HorizontalAlignment="Left" Margin="606,163,0,0" VerticalAlignment="Top" Width="111" Height="23" Click="GetSeguimiento_Click" />
         <TextBox x:Name="Codigo1" HorizontalAlignment="Left" Height="23" Margin="599,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="5UOXOXIEGM98"/>
         <Label x:Name="Codigo" Content="Codigo de seguimiento" HorizontalAlignment="Left" Margin="595,95,0,0" VerticalAlignment="Top" Width="137"/>
@@ -56,5 +60,6 @@
         <TextBox x:Name="envio_importancia" HorizontalAlignment="Center" Height="23" Margin="0,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <Label x:Name="Codigo_Copy17" Content="A domicilio" HorizontalAlignment="Left" Margin="246,0,0,0" VerticalAlignment="Center" Width="88" Grid.Row="1"/>
         <TextBox x:Name="envio_domisilio" HorizontalAlignment="Center" Height="23" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+
     </Grid>
 </Window>
