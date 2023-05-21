@@ -14,13 +14,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace MTISTeoriaCliente
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class Envio
+    {
+        public long? Id { get; set; }
+        public string Estado { get; set; }
+        public string Descripcion { get; set; }
+        public string Origen { get; set; }
+        public string Destino { get; set; }
+        public string Peso { get; set; }
+        public string Altura { get; set; }
+        public string Anchura { get; set; }
+        public string Longitud { get; set; }
+        public string Importancia { get; set; }
+        public string idrepartidor { get; set; }
+        public string Coste { get; set; }
+    }
+        public partial class MainWindow : Window
     {
         public MainWindow()
         {
@@ -79,7 +92,7 @@ namespace MTISTeoriaCliente
                 try
                 {
                     // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/envio?idEnvio=" + Id_envio.Text);
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/asignarEnvio?idEnvio=" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
                     
@@ -138,6 +151,41 @@ namespace MTISTeoriaCliente
 
                     Response.Text = responseBody;
 
+                }
+                catch (Exception ex)
+                {
+                    Response.Text = "Error";
+                    Console.WriteLine("Error en la petición: " + ex.Message);
+                }
+            }
+        }
+
+        private async void Consultar_envio_Click(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    // Realiza una petición GET a una URL específica
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/envio?idEnvio=" + Id_envio.Text);
+
+                    // Verifica si la petición fue exitosa (código de respuesta 200-299)
+
+                    // Lee el contenido de la respuesta como una cadena de texto
+                    string responseBody = await response.Content.ReadAsStringAsync();
+
+                    Envio responseEnvio = JsonConvert.DeserializeObject<Envio>(responseBody);
+                    envio_estado.Text = responseEnvio.Estado;
+                    envio_descripcion.Text = responseEnvio.Descripcion;
+                    envio_origen.Text = responseEnvio.Origen;
+                    envio_destino.Text = responseEnvio.Destino;
+                    envio_peso.Text = responseEnvio.Peso;                    
+                    envio_altura.Text = responseEnvio.Altura;
+                    envio_anchura.Text = responseEnvio.Anchura;
+                    envio_longitud.Text = responseEnvio.Longitud;
+                    envio_coste.Text = responseEnvio.Coste;
+                    envio_idRepartidor.Text = responseEnvio.idrepartidor;
+                    Response.Text = "";
                 }
                 catch (Exception ex)
                 {
