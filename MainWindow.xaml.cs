@@ -196,7 +196,7 @@ namespace MTISTeoriaCliente
             }
         }
 
-        private async void RegistrarAlmacen(object sender, RoutedEventArgs e)
+        private async void RegistrarAlmacen(object sender, RoutedEventArgs e, string idPasado)
         {
             XmlDocument xmlDocument = new XmlDocument();
 
@@ -209,7 +209,7 @@ namespace MTISTeoriaCliente
             XmlElement paquete = xmlDocument.CreateElement("paquete");
 
             XmlElement id = xmlDocument.CreateElement("id");
-            id.InnerText = "30"; //envio_id;
+            id.InnerText = idPasado; //envio_id;
             paquete.AppendChild(id);
 
             XmlElement estado = xmlDocument.CreateElement("estado");
@@ -356,9 +356,14 @@ namespace MTISTeoriaCliente
                 Console.WriteLine("Response: " + responseString);
 
                 Estado.Text = responseString;
+                if (!responseString.Contains("Esta direccion esta fuera de la area de cobertura"))
+                {
+                    RegistrarAlmacen(sender, e, responseString);
+
+                }
             }
 
-            RegistrarAlmacen(sender, e);
+
         }
     }
 }
