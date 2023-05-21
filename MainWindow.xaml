@@ -19,39 +19,43 @@
         <Button x:Name="Asignar_y_enviar_envio_pendiente" Content="Asignar y enviar envio pendiente" HorizontalAlignment="Left" Margin="33,136,0,0" VerticalAlignment="Top" Width="187" Height="28" Click="Asignar_y_enviar_envio_pendiente_Click" />
         <TextBox x:Name="Id_envio" HorizontalAlignment="Left" Height="23" Margin="102,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="Codigo_Copy" Content="Id envio" HorizontalAlignment="Left" Margin="31,33,0,0" VerticalAlignment="Top" Width="137"/>
-        <TextBox x:Name="Response" HorizontalAlignment="Left" Height="60" Margin="33,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" Grid.Row="1"/>
-        <Button x:Name="Cliente_disponible_en_entrega" Content="Envio entregado" HorizontalAlignment="Left" Margin="33,211,0,0" VerticalAlignment="Top" Width="187" Height="26" Click="Cliente_disponible_en_entrega_Click" />
-        <Label x:Name="Codigo_Copy1" Content="Al entregar" HorizontalAlignment="Left" Margin="33,186,0,0" VerticalAlignment="Top" Width="137"/>
-        <Button x:Name="Cliente_no_disponible_en_entrega_Copy" Content="Cliente no disponible en entrega" HorizontalAlignment="Left" Margin="33,5,0,0" VerticalAlignment="Top" Width="187" Height="28" Click="Cliente_no_disponible_en_entrega_Click" Grid.Row="1" />
+        <TextBox x:Name="Response" HorizontalAlignment="Left" Height="60" Margin="33,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" Grid.Row="1"/>
+        <Button x:Name="Cliente_disponible_en_entrega" Content="Envio entregado" HorizontalAlignment="Left" Margin="33,225,0,0" VerticalAlignment="Top" Width="187" Height="26" Click="Cliente_disponible_en_entrega_Click" Grid.RowSpan="2" />
+        <Label x:Name="Codigo_Copy1" Content="Al entregar" HorizontalAlignment="Left" Margin="33,200,0,0" VerticalAlignment="Top" Width="137"/>
+        <Button x:Name="Cliente_no_disponible_en_entrega_Copy" Content="Cliente no disponible en entrega" HorizontalAlignment="Left" Margin="33,19,0,0" VerticalAlignment="Top" Width="187" Height="28" Click="Cliente_no_disponible_en_entrega_Click" Grid.Row="1" />
         <Button x:Name="Consultar_envio" Content="Consultar envio" HorizontalAlignment="Left" Margin="33,102,0,0" VerticalAlignment="Top" Width="187" Height="28" Click="Consultar_envio_Click" />
-        <Label x:Name="Codigo_Copy2" Content="Estado" HorizontalAlignment="Left" Margin="247,48,0,0" VerticalAlignment="Top" Width="63"/>
-        <Label x:Name="Codigo_Copy3" Content="Descripción" HorizontalAlignment="Left" Margin="247,74,0,0" VerticalAlignment="Top" Width="89"/>
-        <Label x:Name="Codigo_Copy4" Content="Origen" HorizontalAlignment="Left" Margin="247,105,0,0" VerticalAlignment="Top" Width="89"/>
-        <Label x:Name="Codigo_Copy5" Content="Destino" HorizontalAlignment="Left" Margin="247,136,0,0" VerticalAlignment="Top" Width="89"/>
-        <Label x:Name="Codigo_Copy6" Content="Peso" HorizontalAlignment="Left" Margin="247,167,0,0" VerticalAlignment="Top" Width="89"/>
-        <Label x:Name="Codigo_Copy7" Content="Altura" HorizontalAlignment="Left" Margin="247,198,0,0" VerticalAlignment="Top" Width="89"/>
-        <Label x:Name="Codigo_Copy8" Content="Anchura" HorizontalAlignment="Left" Margin="247,227,0,0" VerticalAlignment="Top" Width="89" Grid.RowSpan="2"/>
-        <Label x:Name="Codigo_Copy9" Content="Longitud" HorizontalAlignment="Left" Margin="247,12.4,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
-        <Label x:Name="Codigo_Copy10" Content="Coste" HorizontalAlignment="Left" Margin="247,45.4,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
-        <Label x:Name="Codigo_Copy11" Content="IdRepartidor" HorizontalAlignment="Left" Margin="247,72.4,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
-        <TextBox x:Name="envio_estado" HorizontalAlignment="Left" Height="23" Margin="340,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_descripcion" HorizontalAlignment="Left" Height="23" Margin="340,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_origen" HorizontalAlignment="Left" Height="23" Margin="340,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_destino" HorizontalAlignment="Left" Height="23" Margin="340,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_peso" HorizontalAlignment="Left" Height="23" Margin="341,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_altura" HorizontalAlignment="Left" Height="23" Margin="341,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="envio_anchura" HorizontalAlignment="Left" Height="23" Margin="341,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
-        <TextBox x:Name="envio_longitud" HorizontalAlignment="Left" Height="23" Margin="341,15.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBox x:Name="envio_coste" HorizontalAlignment="Left" Height="23" Margin="341,44.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <TextBox x:Name="envio_idRepartidor" HorizontalAlignment="Left" Height="23" Margin="341,72.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <Button Content="Registrar en Almacen" HorizontalAlignment="Center" Margin="0,143,0,0" Grid.Row="1" VerticalAlignment="Top" Click="RegistrarAlmacen"/>
-        <Label x:Name="Codigo_Copy12" Content="IdAlmacen" HorizontalAlignment="Left" Margin="247,103,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
-        <TextBox x:Name="envio_idAlmacen" HorizontalAlignment="Left" Height="23" Margin="342,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label x:Name="Codigo_Copy2" Content="Estado" HorizontalAlignment="Left" Margin="247,19,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label x:Name="Codigo_Copy3" Content="Descripción" HorizontalAlignment="Left" Margin="247,45,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label x:Name="Codigo_Copy4" Content="Origen" HorizontalAlignment="Left" Margin="247,76,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label x:Name="Codigo_Copy5" Content="Destino" HorizontalAlignment="Left" Margin="247,0,0,0" VerticalAlignment="Center" Width="89"/>
+        <Label x:Name="Codigo_Copy6" Content="Peso" HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label x:Name="Codigo_Copy7" Content="Altura" HorizontalAlignment="Left" Margin="245,225,0,0" VerticalAlignment="Top" Width="89" Grid.RowSpan="2"/>
+        <Label x:Name="Codigo_Copy8" Content="Anchura" HorizontalAlignment="Left" Margin="245,12,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
+        <Label x:Name="Codigo_Copy9" Content="Longitud" HorizontalAlignment="Left" Margin="245,39,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
+        <Label x:Name="Codigo_Copy10" Content="Coste" HorizontalAlignment="Left" Margin="245,72,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
+        <Label x:Name="Codigo_Copy11" Content="IdRepartidor" HorizontalAlignment="Left" Margin="245,99,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
+        <TextBox x:Name="envio_estado" HorizontalAlignment="Center" Height="23" Margin="0,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_descripcion" HorizontalAlignment="Center" Height="23" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_origen" HorizontalAlignment="Center" Height="23" Margin="0,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_destino" HorizontalAlignment="Center" Height="23" Margin="0,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_peso" HorizontalAlignment="Center" Height="23" Margin="0,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_altura" HorizontalAlignment="Center" Height="23" Margin="0,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
+        <TextBox x:Name="envio_anchura" HorizontalAlignment="Center" Height="23" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox x:Name="envio_longitud" HorizontalAlignment="Center" Height="23" Margin="0,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox x:Name="envio_coste" HorizontalAlignment="Center" Height="23" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox x:Name="envio_idRepartidor" HorizontalAlignment="Center" Height="23" Margin="0,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Button Content="Crear envio" HorizontalAlignment="Center" Margin="0,171,0,0" Grid.Row="1" VerticalAlignment="Top" Click="CrearEnvio" Width="116" Height="27"/>
+        <Label x:Name="Codigo_Copy12" Content="IdAlmacen" HorizontalAlignment="Left" Margin="245,130,0,0" VerticalAlignment="Top" Width="89" Grid.Row="1"/>
+        <TextBox x:Name="envio_idAlmacen" HorizontalAlignment="Center" Height="23" Margin="0,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <TextBox x:Name="EstadoAlmacen" HorizontalAlignment="Left" Height="74" Margin="599,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Grid.Row="1"/>
         <Label Content="Estado del almacen" HorizontalAlignment="Left" Margin="606,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.577" Grid.Row="1"/>
         <Label x:Name="Codigo_Copy13" Content="IdAlmacen" HorizontalAlignment="Left" Margin="33,65,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="envio_idAlmacen_Salida" HorizontalAlignment="Left" Height="22" Margin="102,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Salida de Almacen" HorizontalAlignment="Left" Margin="76,170,0,0" VerticalAlignment="Top" Click="SalidaAlmacen"/>
+        <Label x:Name="Codigo_Copy14" Content="CP Origen" HorizontalAlignment="Left" Margin="247,139,0,0" VerticalAlignment="Top" Width="89"/>
+        <Label x:Name="Codigo_Copy15" Content="CP Destino" HorizontalAlignment="Left" Margin="247,170,0,0" VerticalAlignment="Top" Width="89"/>
+        <TextBox x:Name="envio_CP_origen" HorizontalAlignment="Center" Height="23" Margin="0,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="envio_CP_destino" HorizontalAlignment="Center" Height="23" Margin="0,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

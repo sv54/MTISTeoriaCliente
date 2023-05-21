@@ -327,5 +327,17 @@ namespace MTISTeoriaCliente
                 EstadoAlmacen.Text = print;
             }
         }
+
+        private async void CrearEnvio(object sender, RoutedEventArgs e)
+        {
+            //Cosas de robert aqui
+
+
+
+
+
+
+            RegistrarAlmacen(sender, e);
+        }
     }
 }
