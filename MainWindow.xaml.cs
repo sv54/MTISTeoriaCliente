@@ -360,5 +360,53 @@ namespace MTISTeoriaCliente
 
             RegistrarAlmacen(sender, e);
         }
+
+        private async void ConfirmarRecepcion(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    // Realiza una petición GET a una URL específica
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/confirmarRecepcion/" + Id_envioPaq.Text);
+
+                    // Verifica si la petición fue exitosa (código de respuesta 200-299)
+
+                    // Lee el contenido de la respuesta como una cadena de texto
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Estado.Text = responseBody;
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Text = "Error";
+                    Console.WriteLine("Error en la petición: " + ex.Message);
+                }
+            }
+        }
+
+        private async void ActualizarFecha(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    // Realiza una petición GET a una URL específica
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/actualizarFecha/" + Id_envioPaq.Text);
+
+                    // Verifica si la petición fue exitosa (código de respuesta 200-299)
+
+                    // Lee el contenido de la respuesta como una cadena de texto
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Estado.Text = responseBody;
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Text = "Error";
+                    Console.WriteLine("Error en la petición: " + ex.Message);
+                }
+            }
+        }
     }
 }
