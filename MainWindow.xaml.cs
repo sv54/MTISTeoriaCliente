@@ -104,7 +104,11 @@ namespace MTISTeoriaCliente
                     string responseBody = await response.Content.ReadAsStringAsync();
 
                     Response.Text = responseBody;
-                        
+                    if(!responseBody.Contains("No hay"))
+                    {
+                        SalidaAlmacen(sender, e);
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -112,7 +116,6 @@ namespace MTISTeoriaCliente
                     Console.WriteLine("Error en la petición: " + ex.Message);
                 }
             }
-            SalidaAlmacen(sender, e);
         }
 
         private async void Cliente_no_disponible_en_entrega_Click(object sender, RoutedEventArgs e)
