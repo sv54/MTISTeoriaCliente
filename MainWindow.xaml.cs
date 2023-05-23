@@ -360,6 +360,7 @@ namespace MTISTeoriaCliente
                 Console.WriteLine("Response: " + responseString);
 
                 Estado.Text = responseString;
+                Id_envio.Text = responseString;
                 glob = responseString;
             }
 
