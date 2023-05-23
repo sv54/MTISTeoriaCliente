@@ -19,8 +19,10 @@ using System.Xml;
 
 namespace MTISTeoriaCliente
 {
+
     public partial class Envio
     {
+
         public long? Id { get; set; }
         public string Estado { get; set; }
         public string Descripcion { get; set; }
@@ -40,6 +42,7 @@ namespace MTISTeoriaCliente
         {
             InitializeComponent();
         }
+        public string glob;
 
         private async void GetSeguimiento_Click(object sender, RoutedEventArgs e)
         {
@@ -109,6 +112,7 @@ namespace MTISTeoriaCliente
                     Console.WriteLine("Error en la petición: " + ex.Message);
                 }
             }
+            SalidaAlmacen(sender, e);
         }
 
         private async void Cliente_no_disponible_en_entrega_Click(object sender, RoutedEventArgs e)
@@ -290,11 +294,11 @@ namespace MTISTeoriaCliente
             root.AppendChild(idAlmacen);
 
             XmlElement idRepartidor = xmlDocument.CreateElement("idRepartidor");
-            idRepartidor.InnerText = "0"; // FALTA ID
+            idRepartidor.InnerText = envio_idRepartidor.Text;
             root.AppendChild(idRepartidor);
 
             XmlElement fechaHora = xmlDocument.CreateElement("fechaHora");
-            fechaHora.InnerText = "2010-01-01"; // FALTA ID
+            fechaHora.InnerText = "2023-05-24";
             root.AppendChild(fechaHora);
 
             xmlDocument.AppendChild(root);
@@ -356,11 +360,7 @@ namespace MTISTeoriaCliente
                 Console.WriteLine("Response: " + responseString);
 
                 Estado.Text = responseString;
-                if (!responseString.Contains("Esta direccion esta fuera de la area de cobertura"))
-                {
-                    RegistrarAlmacen(sender, e, responseString);
-
-                }
+                glob = responseString;
             }
 
 
@@ -380,6 +380,11 @@ namespace MTISTeoriaCliente
                     // Lee el contenido de la respuesta como una cadena de texto
                     string responseBody = await response.Content.ReadAsStringAsync();
                     Estado.Text = responseBody;
+                    if (!glob.Contains("Esta direccion esta fuera de la area de cobertura"))
+                    {
+                        RegistrarAlmacen(sender, e, glob);
+
+                    }
 
                 }
                 catch (Exception ex)
