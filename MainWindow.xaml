@@ -51,7 +51,6 @@
         <Label Content="Estado del almacen" HorizontalAlignment="Left" Margin="606,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.577" Grid.Row="1"/>
         <Label x:Name="Codigo_Copy13" Content="IdAlmacen" HorizontalAlignment="Left" Margin="33,65,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="envio_idAlmacen_Salida" HorizontalAlignment="Left" Height="22" Margin="102,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Salida de Almacen" HorizontalAlignment="Left" Margin="76,170,0,0" VerticalAlignment="Top" Click="SalidaAlmacen"/>
         <Label x:Name="Codigo_Copy14" Content="CP Origen" HorizontalAlignment="Left" Margin="247,139,0,0" VerticalAlignment="Top" Width="89"/>
         <Label x:Name="Codigo_Copy15" Content="CP Destino" HorizontalAlignment="Left" Margin="247,170,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="envio_CP_origen" HorizontalAlignment="Center" Height="23" Margin="0,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
