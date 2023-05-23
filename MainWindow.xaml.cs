@@ -373,14 +373,14 @@ namespace MTISTeoriaCliente
                 try
                 {
                     // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/confirmarRecepcion/" + Id_envioPaq.Text);
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/confirmarRecepcion/" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
 
                     // Lee el contenido de la respuesta como una cadena de texto
                     string responseBody = await response.Content.ReadAsStringAsync();
                     Estado.Text = responseBody;
-                    if (!glob.Contains("Esta direccion esta fuera de la area de cobertura"))
+                    if (glob!=null && !glob.Contains("Esta direccion esta fuera de la area de cobertura"))
                     {
                         RegistrarAlmacen(sender, e, glob);
 
@@ -401,8 +401,8 @@ namespace MTISTeoriaCliente
             {
                 try
                 {
-                    // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/actualizarFecha/" + Id_envioPaq.Text);
+                    // Realiza una petición GET a una URL específic
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/actualizarFecha/" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
 
