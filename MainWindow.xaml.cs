@@ -175,7 +175,7 @@ namespace MTISTeoriaCliente
                 try
                 {
                     // Realiza una petición GET a una URL específica
-                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/asignarEnvio?idEnvio=" + Id_envio.Text);
+                    HttpResponseMessage response = await client.GetAsync("http://localhost:9094/envio?idEnvio=" + Id_envio.Text);
 
                     // Verifica si la petición fue exitosa (código de respuesta 200-299)
 
@@ -351,7 +351,7 @@ namespace MTISTeoriaCliente
                 destinoCp = envio_CP_destino.Text,
                 recogerDomisilio = envio_domisilio.Text
             };
-
+            string idEnvio;
             string jsonString = JsonConvert.SerializeObject(data);
 
             using (var client = new HttpClient())
@@ -363,8 +363,20 @@ namespace MTISTeoriaCliente
                 Console.WriteLine("Response: " + responseString);
 
                 Estado.Text = responseString;
+                idEnvio = responseString;
                 Id_envio.Text = responseString;
                 glob = responseString;
+            }
+
+            using (var client = new HttpClient())
+            {
+                string GetCodigo = "http://localhost:5000/VHJ1_1/MTIS/1.0.0/CodSeguimiento/"+idEnvio;
+                var response = await client.GetAsync(GetCodigo);
+                string responseString = await response.Content.ReadAsStringAsync();
+                responseString = responseString.Substring(1, responseString.Length - 2);
+                Console.WriteLine("Response: " + responseString);
+                dynamic jsonObject = JsonConvert.DeserializeObject(responseString);
+                Codigo1.Text = jsonObject.codigo;
             }
 
 
@@ -421,6 +433,11 @@ namespace MTISTeoriaCliente
                     Console.WriteLine("Error en la petición: " + ex.Message);
                 }
             }
+        }
+
+        private void Codigo1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
